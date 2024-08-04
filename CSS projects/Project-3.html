@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email-app</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+
+        }
+        body{
+            height: 100vh;
+            font-size: 20px;
+            font-family: sans-serif;
+            display: grid;
+            text-align: center;
+            grid-template-columns: 80px 400px 1fr 250px;
+            grid-template-rows: 80px 1fr;
+        }
+        nav,section,main,aside
+        {
+            text-align: center;
+            padding-top: 20px;
+            font-weight: 700;
+        }
+        nav{
+            background-color: grey;
+            grid-row: 1/-1;
+            color: white;
+
+        }
+        menu{
+            background-color: purple;
+            grid-column: 2/-1;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 0 40px;
+            
+        }
+        button{
+            background-color: rgba(0, 128, 47, 0.335);
+            color: white;
+            border: 0;
+            font-size: 16px;
+            font-weight: 700;
+            padding: 8px 16px;
+        }
+        button:last-child{
+            background-color: red;
+            margin-left: auto;
+        }
+        section , aside{
+            background-color: rgba(195, 192, 189, 0.448);
+            
+        }
+        section{
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            overflow: scroll;
+        }
+        .email-receiver{
+            flex-shrink: 0;
+            background-color: rgb(62, 56, 56);
+            height: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+        main{
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <nav>NAV</nav>
+    <menu>
+        <button>New</button>
+        <button>Reply</button>
+        <button>Forward</button>
+        <button>Mark Unread</button>
+        <button>Trash</button>
+    </menu>
+    <section><div class="email-receiver">Email -1</div>
+    <div class="email-receiver">Email -2</div>
+    <div class="email-receiver">Email -3</div>
+    <div class="email-receiver">Email -4</div>
+    <div class="email-receiver">Email -5</div>
+    <div class="email-receiver">Email -6</div>
+    <div class="email-receiver">Email -7</div>
+    <div class="email-receiver">Email -8</div>
+    <div class="email-receiver">Email -9</div>
+    <div class="email-receiver">Email -10</div></section>
+    <main>Email Alert</main>
+    <aside>Aside</aside>
+</body>
+</html>
