@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accordian[Demo]</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        *{
+            margin: 0;
+            padding:0;
+            box-sizing: border-box;
+            font-family: 'Inter' , sans-serif;
+        }
+        .number , .cont-text{
+            font-size: 24px;
+            font-weight: 700;
+            color: rgb(94, 93, 93);
+        }
+
+        .number{
+            color: rgb(202, 199, 199);
+        }
+
+        .container{
+            width:825px;
+            margin: 75px auto;
+            display:flex;
+            flex-direction: column;
+            gap:32px;
+        }
+        .arrow-svg{
+            color: rgb(94, 93, 93);
+
+            width: 24px;
+            height: 24px;
+        }
+        .common-container{
+            box-shadow:0 0 20px rgba(0, 0 ,0, 0.1);
+            padding: 24px;
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            column-gap:32px;
+            row-gap: 24px;
+        }
+        .hidden-container {
+        display: none;
+            grid-column:2;
+            & p {
+                font-size: 18px;
+                font-weight: bolder;
+                margin-bottom: 20px ;
+
+            }
+            & ul{
+                margin-left: 24px;
+                display: flex;
+                flex-direction: column;
+                gap:10px;
+            }
+        }
+
+        .cotainer-2{
+            border-top: 3px solid rgb(57, 177, 41);
+            & .hidden-container{
+               display: block;
+            }
+            & .number , .cont-text , .arrow-svg{
+                color: rgb(57, 177, 41);
+                ;
+            }
+
+
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="common-container cotainer-1">
+            <p class="number">01</p>
+            <p class="cont-text">Where are these chairs assembled?</p>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="arrow-svg">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+              </svg>
+            <div class="hidden-container">
+                <p class="text-highlight">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus eum aspernatur delectus quam neque eligendi vero perferendis cupiditate illum possimus minima officiis repudiandae, non consequuntur asperiores ratione facilis consectetur in!</p>
+
+                <ul>
+                    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="common-container cotainer-2">
+            <p class="number">02</p>
+            <p class="cont-text">Where are these chairs assembled?</p>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="arrow-svg">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+              </svg>
+            <div class="hidden-container">
+                <p class="text-highlight">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus eum aspernatur delectus quam neque eligendi vero perferendis cupiditate illum possimus minima officiis repudiandae, non consequuntur asperiores ratione facilis consectetur in!</p>
+
+                <ul>
+                    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="common-container cotainer-1">
+            <p class="number">03</p>
+            <p class="cont-text">Where are these chairs assembled?</p>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="arrow-svg">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+              </svg>
+            <div class="hidden-container">
+                <p class="text-highlight">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus eum aspernatur delectus quam neque eligendi vero perferendis cupiditate illum possimus minima officiis repudiandae, non consequuntur asperiores ratione facilis consectetur in!</p>
+
+                <ul>
+                    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
