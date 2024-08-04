@@ -25,7 +25,7 @@ para - 1/6
 - 04 Colours ;
 
 - main color : #e67e22
-- Tints : #e2e2e2
+- Tints : #e2e2e2 #fcf0e4
 - Shades :
 - Accents :
 - Greys :
@@ -57,6 +57,12 @@ html{
  font-size: 62.5%;
 }
 
+*:focus{
+    outline: none;
+    /* border: 2px dotted #a25918;
+    outline-offset: 112rem; */
+    box-shadow: 0 0 0 1rem rgba(230, 125, 34, 0.4);
+}
 
 /** *************************  */
 /**    Re usable code          */
@@ -72,29 +78,58 @@ html{
     column-gap: 6.4rem;
     
 }
+/* * Imp bigilu #FFF  */
+/* #fff */
+/* #fff */
+/* #fff */
+
+.grid:not(:last-child){
+    margin-bottom: 9.6rem;
+}
 .grid-coloumn-two{
     grid-template-columns: repeat(2,1fr);
 }
 .grid-coloumn-three{
     grid-template-columns: repeat(3,1fr);
 }
+.grid-coloumn-four{
+    grid-template-columns: repeat(4,1fr);
+}
+
+
 .margin-right-main {
     margin-right: 2rem !important;
 }
 .grid-center-v{
     align-items: center;
 }
+.btn,
 .btn:link , .btn:visited {
     display: inline-block;
     font-size: 2rem;
     padding: 1.6rem 3.2rem;
    text-decoration: none;
    border-radius: 0.9rem;
-   transition: background-color 0.5s;
+   transition: all 0.5s;
+   cursor: pointer;
 }
-
+.btn-form{
+    align-self: end;
+    border: none;
+    padding: 1.2rem;
+    font-family: inherit;
+    font-size: 1.8rem;
+    font-weight: 600;
+    background-color: #45260a;
+    color:#fcf0e4 ;
+    transition: all 0.6s !important;
+}
+.btn-form:hover{
+    background-color: #fcf0e4;
+    color: #45260a;
+}
 .btn--left:link , .btn--left:visited {
-    background-color: #e67e22;
+    background-color: #cf711f;
     color: #fff;
 }
 .btn--left:hover , .btn--left:active{
@@ -122,5 +157,5 @@ strong{
     text-align: center;
 }
 .margin-bottom-md{
-    margin-bottom: 4.8rem;
+    margin-bottom: 4.8rem !important;
 }
