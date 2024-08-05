@@ -52,9 +52,12 @@ body{
     font-family: "Rubik", sans-serif;
     line-height: 1;
     font-weight: 400;
+    position: relative;
+    overflow-x: hidden;
 }
 html{
  font-size: 62.5%;
+ overflow-x: hidden;
 }
 
 *:focus{
@@ -95,6 +98,9 @@ html{
 .grid-coloumn-four{
     grid-template-columns: repeat(4,1fr);
 }
+.grid-coloumn-footer{
+    grid-template-columns: 1.5fr 1.5fr 1fr 1fr 1fr;
+}
 
 
 .margin-right-main {
@@ -112,7 +118,9 @@ html{
    border-radius: 0.9rem;
    transition: all 0.5s;
    cursor: pointer;
+   line-height: 1.4;
 }
+
 .btn-form{
     align-self: end;
     border: none;
@@ -159,3 +167,4 @@ strong{
 .margin-bottom-md{
     margin-bottom: 4.8rem !important;
 }
+
