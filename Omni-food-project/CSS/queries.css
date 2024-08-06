@@ -1,301 +1,275 @@
-/* rem and em do NOT depend on html font-size in media queries! Instead, 1rem = 1em = 16px */
 
-/**************************/
-/* BELOW 1344px (Smaller desktops) */
-/**************************/
+/** *************************  */
+/**    For below <=1344 px (84em)         */
+/** *************************  */
 
-@media (max-width: 84em) {
-  .hero {
-    max-width: 120rem;
-  }
+/*~ Note here rem do not work in the queries selctor so use em instead of rem */
 
-  .heading-primary {
-    font-size: 4.4rem;
-  }
+@media (max-width:84em) {
+    .primary-heading{
+        font-size:4.4rem ;
+    }
+    .hero{
+        max-width: 120rem;
+    }
 
-  .gallery {
-    grid-template-columns: repeat(2, 1fr);
-  }
+    .testiomonial-images{
+        grid-template-columns: repeat(2,1fr);
+    }
+
+}
+/** *************************  */
+/**    For below <=1200 px 75(em)  */
+/** *************************  */
+
+@media(max-width:75em){
+      
+    html{
+        font-size: 52.25%;
+    }
+    .hero{
+        gap:4.8rem;
+    }
+    .header{
+        padding: 0 3.2rem ;
+    }
+    .nav-link-list{
+        gap: 3.2rem;
+    }
+    .secondary-heading{
+        font-size: 3.6rem;
+    }
+    .terciary-heading{
+        font-size: 2.2rem;
+    }
+    .grid{
+        column-gap: 4.8rem;
+        row-gap: 6.4rem;
+    }
+    .testimonial-textsection {
+        padding: 9.6rem 3.2rem; 
+    }
 }
 
-/**************************/
-/* BELOW 1200px (Landscape Tablets) */
-/**************************/
+/** *************************  */
+/**    For below <=944 px 59(em)  */
+/** *************************  */
 
-@media (max-width: 75em) {
-  html {
-    /* 9px / 16px  */
-    font-size: 56.25%;
-  }
+@media(max-width:59em){
 
-  .grid {
-    column-gap: 4.8rem;
-    row-gap: 6.4rem;
-  }
+    html{
+        font-size: 50%;
+    }
+    .hero{
+        grid-template-columns: 1fr;
+        gap:6.4rem;
+        text-align: center;
+        padding: 0 8rem;
+    }
+    .hero-content-image{
+        width: 60%;
+    }
+    .feedBack-sec-header {
+        justify-content: center;
+        margin-top: 4.8rem;
+    }
+    .featured-img img {
+            height: 2.4rem;
+    }
+    .content-meal {
+        padding: 2.4rem 3.2rem 3.2rem 3.2rem ;
+    }
+    .section-testimonial {
+        grid-template-columns: 1fr;
+    }
+    .testiomonial-images {
+        grid-template-columns: repeat(6, 1fr);
+    }
 
-  .heading-secondary {
-    font-size: 3.6rem;
-  }
+    .cta{
+        grid-template-columns: 3fr 2fr;
+    }
+    .cta-form {
+        grid-template-columns: 1fr;
+    }
+    .btn-form{
+        margin-top: 1.2rem;
+    }
+    .secondary-heading{
+        line-height: 4rem;
+    }
+    .menu-btns{
+        display: block;
+    }
+    /* .sub-heading{
+        font-size: 1.2rem;
+        font-family: inherit;
+        color:#a25918 ;
+        font-weight: 500;
+        letter-spacing: 0.1rem;
+        margin-bottom: 2.4rem;
+        text-transform: uppercase;
+    } */
 
-  .heading-tertiary {
-    font-size: 2.4rem;
-  }
+    .nav-bar{
+        background-color:rgba(255, 255, 255, 0.8);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
 
-  .header {
-    padding: 0 3.2rem;
-  }
+        height: 100vh;
+        width: 100%;
 
-  .main-nav-list {
-    gap: 3.2rem;
-  }
+        transform: translateX(100%);
+        
+        /** Imp for opening and also for transition part*/
+        opacity: 0; 
+        pointer-events: none;
+        visibility: hidden; 
+        transition: all 0.5s ease-in;
+    }
 
-  .hero {
-    gap: 4.8rem;
-  }
+    .nav-open .nav-bar {
+        opacity: 1;
+        visibility: visible;
+        pointer-events:all;
+        transform: translateX(0);
+    }
+    .nav-open .menu-btn[name="close-outline"]{
+        display: block;
+    }
+    .nav-open .menu-btn[name="menu-outline"]{
+        display: none;
+    }
 
-  .testimonials-container {
-    padding: 9.6rem 3.2rem;
-  }
+    /* .menu-btn[name="menu-outline"]{
+        display: hidden;
+        color: blue;
+    } */
+
+    .nav-link-list{
+        flex-direction: column;
+        gap: 8rem;
+       
+    }
+    .nav-link:link  , .nav-link:visited{
+        font-size: 3.2rem;
+    }
+
 }
 
-/**************************/
-/* BELOW 944px (Tablets) */
-/**************************/
+/** *************************  */
+/**    For below <=700 px 44(em)  */
+/** *************************  */
 
-@media (max-width: 59em) {
-  html {
-    /* 8px / 16px = 0.5 = 50% */
-    font-size: 50%;
-  }
+@media (max-width:44em){
+    /* html{
+        font-size: 43.75%;
+    } */
+    .grid-coloumn-three , .grid-coloumn-four{
+        grid-template-columns: repeat(2,1fr);
+    }
+    .items-of-meal{
+        grid-column: 1/-1;
+        justify-self: center;
+    }
 
-  .hero {
-    grid-template-columns: 1fr;
-    padding: 0 8rem;
-    gap: 6.4rem;
-  }
-
-  .hero-text-box,
-  .hero-img-box {
-    text-align: center;
-  }
-
-  .hero-img {
-    width: 60%;
-  }
-
-  .delivered-meals {
-    justify-content: center;
-    margin-top: 3.2rem;
-  }
-
-  .logos img {
-    height: 2.4rem;
-  }
-
-  .step-number {
-    font-size: 7.4rem;
-  }
-
-  .meal-content {
-    padding: 2.4rem 3.2rem 3.2rem 3.2rem;
-  }
-
-  .section-testimonials {
-    grid-template-columns: 1fr;
-  }
-
-  .gallery {
-    grid-template-columns: repeat(6, 1fr);
-  }
-
-  .cta {
-    /* 3/5 = 60% + 2/5 = 40% */
-    grid-template-columns: 3fr 2fr;
-  }
-
-  .cta-form {
-    grid-template-columns: 1fr;
-  }
-
-  .btn--form {
-    margin-top: 1.2rem;
-  }
-
-  /* MOBILE NAVIGATION */
-  .btn-mobile-nav {
-    display: block;
-  }
-
-  .main-nav {
-    background-color: rgba(255, 255, 255, 0.555);
-    position: absolute;
-    filter:blur(10px);
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    transform: translateX(100%);
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.5s ease-in;
-
-    /* Hide navigation */
-    /* Allows NO transitions at all */
-    /* display: none; */
-
-    /* 1) Hide it visually */
-    opacity: 0;
-
-    /* 2) Make it unaccessible to mouse and keyboard */
-    pointer-events: none;
-
-    /* 3) Hide it from screen readers */
-    visibility: hidden;
-  }
-
-  .nav-open .main-nav {
-    opacity: 1;
-    pointer-events: auto;
-    visibility: visible;
-    transform: translateX(0);
-  }
-
-  .nav-open .icon-mobile-nav[name="close-outline"] {
-    display: block;
-  }
-
-  .nav-open .icon-mobile-nav[name="menu-outline"] {
-    display: none;
-  }
-
-  .main-nav-list {
-    flex-direction: column;
-    gap: 4.8rem;
-  }
-
-  .main-nav-link:link,
-  .main-nav-link:visited {
-    font-size: 3rem;
-  }
+    .secondary-heading{
+        margin-bottom: 4.8rem;
+    }
+    .pricing-sec{
+        width: 100%;
+    }
+    .grid-coloumn-footer{
+        grid-template-columns: repeat(6,1fr);
+    }
+    .footer-nav-els{
+        grid-row:1;
+        grid-column: span 2;
+        margin-bottom: 3.2rem;
+    }
+    .logo-social , .contact{
+        grid-row: 2;
+        grid-column:span 3;
+    }
+    .featured-img img{
+        height: 2rem;
+    }
+ 
 }
 
-/**************************/
-/* BELOW 704px (Smaller tablets) */
-/**************************/
+/** *************************  */
+/**    For below <=544 px 34(em)  */
+/** *************************  */
 
-@media (max-width: 44em) {
-  .grid--3-cols,
-  .grid--4-cols {
-    grid-template-columns: repeat(2, 1fr);
-  }
 
-  .diets {
-    grid-column: 1 / -1;
-    justify-self: center;
-  }
-
-  .heading-secondary {
-    margin-bottom: 4.8rem;
-  }
-
-  .pricing-plan {
-    width: 100%;
-  }
-
-  .grid--footer {
-    grid-template-columns: repeat(6, 1fr);
-  }
-
-  .logo-col,
-  .address-col {
-    grid-column: span 3;
-  }
-
-  .nav-col {
-    grid-row: 1;
-    grid-column: span 2;
-    margin-bottom: 3.2rem;
-  }
+@media (max-width:34em){
+    .hero {
+        padding: 0 3.2rem;
+    }
+    .section-hero{
+        padding:2.4rem 0 6.4rem 0;
+    }
+    .btn, .btn:link, .btn:visited {
+        padding: 2rem 3.2rem;
+    }
+    .hero-content-image{
+        width: 80%;
+    }
+    .featured-img {
+        & img {
+            height: 1.2rem;
+        }
+    }
+    .grid-coloumn-two,
+    .grid-coloumn-three,
+    .grid-coloumn-four,
+    .testimonial-grid{
+        grid-template-columns: 1fr;
+    }
+    .grid-center-v 
+    div:nth-child(2){
+        grid-row: 1;
+    }
+    .grid-center-v 
+    div:nth-child(6){
+        grid-row: 5;
+    }
+    .section-img{
+        transform: translateY(3rem);
+    }
+    .testiomonial-images{
+        grid-template-columns: repeat(4,1fr);
+        gap: 1.8rem;
+        padding: 1.8rem;
+    }
+    .cta{
+        grid-template-columns: 1fr;
+    }
+    .img-cta{
+        height:32rem;
+        grid-row: 1;
+    }
+    .text-content-cta{
+        padding: 3.2rem;
+    }
 }
 
-/**************************/
-/* BELOW 544px (Phones) */
-/**************************/
 
-@media (max-width: 34em) {
-  .grid {
-    row-gap: 4.8rem;
-  }
+/*
 
-  .grid--2-cols,
-  .grid--3-cols,
-  .grid--4-cols {
-    grid-template-columns: 1fr;
-  }
+ - 01 FONT SIZE SYSTEM (px)
 
-  .btn,
-  .btn:link,
-  .btn:visited {
-    padding: 2.4rem 1.6rem;
-  }
-
-  .section-hero {
-    padding: 2.4rem 0 6.4rem 0;
-  }
-
-  .hero {
-    padding: 0 3.2rem;
-  }
-
-  .hero-img {
-    width: 80%;
-  }
-
-  .logos img {
-    height: 1.2rem;
-  }
-
-  .step-img-box:nth-child(2) {
-    grid-row: 1;
-  }
-
-  .step-img-box:nth-child(6) {
-    grid-row: 5;
-  }
-
-  .step-img-box {
-    transform: translateY(2.4rem);
-  }
-
-  .testimonials {
-    grid-template-columns: 1fr;
-  }
-
-  .gallery {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.2rem;
-  }
-
-  .cta {
-    grid-template-columns: 1fr;
-  }
-
-  .cta-text-box {
-    padding: 3.2rem;
-  }
-
-  .cta-img-box {
-    height: 32rem;
-    grid-row: 1;
-  }
-}
-
-/* 
-- Font sizes (px)
 10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
 
-- Spacing system (px)
+
+- 02 SPACING SYSTEM (px)
+
 2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+
 */
