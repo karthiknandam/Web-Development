@@ -12,6 +12,11 @@ const btnsOpenModal = document.querySelectorAll('.btn--show-modal');
 const learnMoreBtn = document.querySelector('.btn--scroll-to');
 const section1 = document.getElementById('section--1');
 
+const tabs = document.querySelectorAll('.operations__tab');
+const tabsContent = document.querySelector('.operations__tab-container');
+const contentOfTab = document.querySelectorAll('.operations__content');
+
+const nav = document.querySelector('.nav');
 
 // const openModal = function () {
 //   modal.classList.remove('hidden');
@@ -83,6 +88,89 @@ document.querySelector('.nav__links').addEventListener('click',function(e){
 });
 
 // ^
+
+// ^ Btn Tabbed component building ;
+
+
+
+// 
+tabsContent.addEventListener('click',(e)=>{
+  const clicked = e.target.closest('.operations__tab');
+  console.log(clicked);
+
+  // * assigning the null value to which it gonna clicked which return out of the function 
+
+  if(!clicked)return;
+
+  // * Removing the default behaviour and adding the clicked behaviour
+
+  tabs.forEach(e=>e.classList.remove('operations__tab--active'));
+  contentOfTab.forEach(c=>c.classList.remove('operations__content--active'))
+
+
+  clicked.classList.add('operations__tab--active');
+  document.querySelector(`.operations__content--${clicked.dataset.tab}`).classList.add('operations__content--active');
+
+
+})
+
+
+// ^
+
+
+
+// ^ nav ELement 
+
+const handlerEvnetNav = function(e){
+
+  if(e.target.classList.contains('nav__link')){
+
+    const link = e.target;
+    const reminingLinks = link.closest('.nav').querySelectorAll('.nav__link');
+    const logo = link.closest('.nav').querySelector('img');
+    
+      reminingLinks.forEach(l=>{
+        if(l !== link)l.style.opacity = this;
+      })
+      logo.style.opacity = this;
+    
+  }
+
+}
+
+nav.addEventListener('mouseover',handlerEvnetNav.bind(0.5));
+nav.addEventListener('mouseout',handlerEvnetNav.bind(1));
+
+
+// ^ TO make nav sticky at the end of the section-1;
+const section1Coords = section1.getBoundingClientRect();
+
+window.addEventListener('scroll',()=>{
+  
+  // console.log(section1Coords.top);
+
+  if(window.scrollY > section1Coords.top) nav.classList.add('sticky');
+  else nav.classList.remove('sticky');
+  
+  
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // const ev = ()=>{
 //   alert("XYZ")};
