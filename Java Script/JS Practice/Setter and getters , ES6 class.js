@@ -57,3 +57,61 @@ const Value = {
 
 Value.info = 1;
 console.log(Value.age);
+
+
+// ^ More ES6 classes 
+
+class account{
+    // -> public fields
+
+    locale = navigator.language;
+
+    // -> private fields (can not acces outside of the account class)
+
+    #movements = [];
+
+    constructor(name , accType){
+        this.name = name;
+        this.accType = accType;
+    }
+
+
+    // -> public methods here
+    deposit(val){
+        // if(this._accountCheck){ --> protected use case scenario
+        if(this.#accountCheck){
+            this.#movements.push(val);
+        }
+    }
+    withdrawl(val){
+        this.deposit(-val);
+    }
+
+
+    // -> protected method (Use _ infront of any method to protect the data but it can be access ouside make sure that)
+    // _accountCheck(val){
+
+    // -> private methods are working now with the next to the prototype
+
+
+    #accountCheck(val){
+        return true;
+    }
+
+    // PrivateMethods[1]
+    // 0
+    // :
+    // #accountCheck(val){ return true; } {name: '#accountCheck', value: ƒ}
+}
+
+const bish = new account('Bish','Savings');
+bish.deposit(200);
+bish.withdrawl(100);
+console.log(bish);
+
+//  public fields , methods
+//  private fields , methods
+// -> private methods not works exept the chrome
+
+// # use infront of any value to make it to private;
+// just mension the value above the constructor to make the field public
