@@ -63,12 +63,15 @@ class App{
 
     constructor(){
         this._getPosition();
-                // ~ constructor calls immediatly when the new object is created ;
-                // ~ we use this kerword in the event listners as well as 
-        form.addEventListener('submit',this._newWorkout.bind(this));
-        
-        inputType.addEventListener('change',this._toggleEleavationField)
+        // ~ constructor calls immediatly when the new object is created ;
+        // ~ we use this kerword in the event listners as well as 
+    
+        this._getLocalStorage();
 
+        form.addEventListener('submit',this._newWorkout.bind(this));
+                
+        inputType.addEventListener('change',this._toggleEleavationField)
+                
         containerWorkouts.addEventListener('click',this._clickOnMap.bind(this));
     }
     _getPosition(){
@@ -85,14 +88,14 @@ class App{
         }
 
     _loadMap(position){
-            // const{latitude} = position.coords;
-            // const{longitude} = position.coords;
+            const{latitude} = position.coords;
+            const{longitude} = position.coords;
             
-            // const coords = [latitude,longitude];
+            const coords = [latitude,longitude];
             const dnl = [14.8673561,78.3691684];
             // only to make sure to set the position to dnl;
 
-            this.#map = L.map('map').setView(dnl, 13);
+            this.#map = L.map('map').setView(coords, 13);
             //  13 is zoom ration which fit perfect when it is loaded;
             //  L is the this keyword for the leaf open source API
             //  L.map sets the map in the given position here we gave the map to the last div of the html
@@ -103,6 +106,9 @@ class App{
 
             this.#map.on('click',this._showForm.bind(this));
 
+            this.#workouts.pop();
+
+            this.#workouts.forEach(work=>this._renderingWorkouts(work));
             
     }
     _showForm(mapEv){
@@ -160,6 +166,8 @@ class App{
             this._renderingWorkouts(worker);
             this._renderForm(worker);
             this._hideForm();
+            this._setLocalStorage();
+            
             
         
     }
@@ -235,9 +243,21 @@ class App{
                 duration:1,
             }
         });
-        console.log(workoutFind);
-        
-        workoutFind.click();
+    }
+    _setLocalStorage(){
+        localStorage.setItem('workouts',JSON.stringify(this.#workouts));
+    }
+    _getLocalStorage(){
+        const data = JSON.parse(localStorage.getItem('workouts'));
+
+        if(!data) return;
+
+        this.#workouts = data;
+        this.#workouts.forEach(work=>this._renderForm(work));
+    }
+    reset(){
+        localStorage.removeItem('workouts');
+        location.reload();
     }
 }
 const app = new App();
