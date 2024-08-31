@@ -1,5 +1,6 @@
-import { API_KEY , PER_PAGE} from "./config";
-import { getURL } from "./helper";
+import { Value } from "sass";
+import { API_KEY , KEY, PER_PAGE} from "./config";
+import { getURL ,sendJSON } from "./helper";
 
 export const state = {
      recipe : {},
@@ -12,25 +13,28 @@ export const state = {
      bookmarks :[]
 }
 
+const getObjectRecipe = function(recipe){
+  const {recipe} = data.data;
+  return {
+    id:recipe.id,
+    title : recipe.title,
+    publisher : recipe.publisher,
+    sourceUrl : recipe.source_url,
+    image : recipe.image_url,
+    servings : +recipe.servings,
+    cookingTime : +recipe.cooking_time,
+    ingredients :recipe.ingredients
+  }
+}
+
 export const loadRecipie =  async function(id){
     try{
 
     const data = await getURL(`${API_KEY}/${id}`);
 
     // Calling it and storing it so that below code can get access to this using async function ;
-
-    const {recipe}  = data.data;
     
-    state.recipe = {
-      id:recipe.id,
-      title : recipe.title,
-      publisher : recipe.publisher,
-      sourceUrl : recipe.source_url,
-      image : recipe.image_url,
-      servings : recipe.servings,
-      cookingTime : recipe.cooking_time,
-      ingredients : recipe.ingredients,
-    }
+    state.recipe = getObjectRecipe(data);
 
     if(state.bookmarks.some(bookmark => bookmark.id===id)){
       state.recipe.bookmark = true;
@@ -93,12 +97,10 @@ const parseStorage = function(){
   localStorage.setItem('bookmark',JSON.stringify(state.bookmarks));
 }
 
-export const getStorage = function(){
-  state.bookmarks = JSON.parse(localStorage.getItem('bookmark'));
-}
+
 export const updateBookmark = function(recipe){
   state.bookmarks.push(recipe);
-  console.log(state.bookmarks);
+
   if(recipe.id === state.recipe.id) state.recipe.bookmark = true;
 
   parseStorage();
@@ -113,4 +115,46 @@ export const deleteBookmark = function(id){
 
   parseStorage();
 }
+
+export const sendRecipe = async function(values){
+  try{
+  const data =  Object.entries(values);
+
+  const ingredients = data.filter(el => el[0].startsWith('ingredient') && el[1]!=='')
+                      .map(el=>{
+                        const iterator = el[1].replaceAll(' ','').split(',');
+
+                        if(iterator.length!==3) throw new Error('Wrong Format is take Placed');
+
+                        const [quantity,unit,description] = iterator;
+                        return {quantity:quantity?+quantity:null  ,unit, description };
+                      });
+
+    const recipe = {
+      title : values.title,
+      publisher : values.publisher,
+      sourceUrl : values.source_url,
+      image : values.image_url,
+      servings : +values.servings,
+      cookingTime : +values.cooking_time,
+      ingredients,
+    }
+
+    const sendTo = await sendJSON(`${API_KEY}?key=${KEY}`, recipe);
+    
+    console.log(sendTo);
+
+    
+  }catch(err){
+    throw err;
+  }
+
+}
+
+const init = function(){
+  const bookmark = localStorage.getItem('bookmark'); 
+  if(!bookmark) return;
+  state.bookmarks = JSON.parse(bookmark);
+}
+init();
 

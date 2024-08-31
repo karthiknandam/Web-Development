@@ -8,6 +8,8 @@ import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 import recipeResultsView from './view/recipeResultsView.js';
 import bookmarkView from './view/bookmarkView.js';
+
+import addRecipeView from './view/addRecipeView.js';
 // https://forkify-api.herokuapp.com/v2
 
 ///////////////////////////////////////
@@ -40,7 +42,7 @@ const controlRecipe = async function(){
     //  we must use the await call in order to take the actions from the async function from another async function
     recipeView.render(model.state.recipe);
     
-    model.getStorage();
+
   }
   catch(err){
     console.error(err);
@@ -101,7 +103,16 @@ const controlStorage = function(){
   // -> add before all the load happens it is imp 
 }
 
+const controlAddRecipe = async function(data){
+  try{
+    await model.sendRecipe(data);
+  }catch(err){
+    throw err;
+  }
+}
+
 const init = function(){
+  addRecipeView.addHandlerRecipes(controlAddRecipe);
   bookmarkView.addHandlerBookmark(controlStorage);
   recipeView.addHandlerRender(controlRecipe);
   recipeView.addHandlerServingSize(controlServings);

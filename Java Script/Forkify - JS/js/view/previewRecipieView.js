@@ -2,11 +2,9 @@ import View from "./View";
 import icons from '../../img/icons.svg';
 class previewRecipeView extends View {
     _parentItem = '';
-    _data;
+
     _generateMarkup(){
       const id = window.location.hash.slice(1);
-      console.log(this._data.title);
-      
         return `
         <li class="preview">
             <a class="preview__link ${ id === this._data.id ? "preview__link--active" :' '}" href="#${this._data.id}">

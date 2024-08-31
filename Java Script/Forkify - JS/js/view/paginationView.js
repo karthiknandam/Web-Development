@@ -15,7 +15,7 @@ class PaginationView extends View{
         const current = +(this._data.page);
         // converting value from string to number using + operator 
         const requiredPages = Math.ceil(renderData.length / PER_PAGE);
-        
+
         if(current === 1 && requiredPages > 1 ){
             return `
             <button data-goto = "${current+1}" class="btn--inline pagination__btn--next">
@@ -27,7 +27,7 @@ class PaginationView extends View{
           `
         }
         
-        if(current === requiredPages){
+        if(current === requiredPages && requiredPages > 1 ){
             return `
             <button data-goto ="${current-1}" class="btn--inline pagination__btn--prev">
                 <svg class="search__icon">
@@ -56,7 +56,7 @@ class PaginationView extends View{
             `
         }
 
-        return '';
+        return ' ';
     }
     // handler recives the function we called in the controller and gets the handler parameter is modifies here so make sure we use the parameter there 
     addHanlderClick(handler){

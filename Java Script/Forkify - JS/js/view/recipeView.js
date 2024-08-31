@@ -32,9 +32,7 @@ class RecipeView extends View{
         const btn = e.target.closest('.btn--round');
 
         if(!btn) return ;
-
-        console.log(btn);
-        
+                
         handler();
       })
     }
