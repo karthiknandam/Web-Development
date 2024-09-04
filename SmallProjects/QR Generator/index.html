@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR code Generator</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+            background-color: antiquewhite;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+
+        }
+        .container{
+            background-color: white;
+            width: 50%;
+            padding: 20px;
+        }
+        .heading{
+            text-align: center;
+            margin-bottom: 10px;
+
+        }
+        .content-link{
+            padding: 10px;
+            display: block;
+            width: 100%;
+            margin-bottom: 20px;
+            border: 2px solid black ;
+        }
+        .content-link:focus{
+            outline: none;
+            /*helps to get the focus state unable*/
+        }
+        .submit{
+            background-color: green;
+            color: white;
+            padding: 10px;
+            font-size: 15px;
+            border: none;
+            width: 100%;
+            text-align: center;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        .qrgen{
+            display: block;
+            margin: auto;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="heading">
+            QR Code Generator
+        </h2>
+        <form>
+            <input type="text" class="content-link" placeholder="Enter your link">
+            <button class="submit">Generate</button>
+        </form>
+        <img src=" " alt="" class="qrgen" >
+    </div>
+
+    <script>
+        const inpText = document.querySelector('.content-link');
+
+        const btn = document.querySelector('.submit');
+        const qrGen = document.querySelector('.qrgen');
+        const form = document.querySelector('form');
+        const callFun = function(){
+            const value = inpText.value;
+            console.log(value);
+            if(!value) alert('Please Enter the value');
+            else{
+                qrGen.src = 
+                `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${value}`;
+            }
+        };
+        btn.addEventListener('click',callFun);
+
+        /*Here we used form beacuse submit only works for the form elements so be carefull with that */
+        form.addEventListener('submit',function(e){
+            e.preventDefault();
+            callFun();
+        })
+    </script>
+</body>
+</html>
