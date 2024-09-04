@@ -1,0 +1,27 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+}
+body{
+    background-color:antiquewhite;
+    display: flex;align-items: center;justify-content: center;
+    height: 100vh;
+}
+.password-in{
+    border: 5px solid white;
+    padding: 10px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    margin-bottom: 8px;
+}
+.password-in.success{
+    border: 5px solid rgb(140, 255, 0);
+}
+.password-in:focus{
+    outline: none;
+}
+.passwrod-checker{
+    margin-left: 3px;
+}
