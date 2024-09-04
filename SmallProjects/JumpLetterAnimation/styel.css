@@ -1,0 +1,34 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+span{
+    font-size: 50px;
+    font-weight: bolder;
+    font-family: sans-serif;
+    cursor: pointer;
+    display: inline-block;
+    
+}
+
+span.active {
+    animation: jumpAndRotate 2.5s ease-in-out;
+}
+
+@keyframes jumpAndRotate {
+    0% {
+        transform: rotate(180deg) translate(0,0);
+    }
+    100% {
+        transform:translate(0,-100px) scale(2.5);
+    }
+}
