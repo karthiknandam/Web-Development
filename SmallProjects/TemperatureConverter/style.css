@@ -1,0 +1,41 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: antiquewhite;
+}
+.container{
+    background-color: white;
+    overflow: hidden;
+    width: 400px;
+}
+.main-heading{
+    background-color: blue;
+    color: white;
+    text-align: center;
+    padding: 10px;
+
+}
+.section{
+    padding: 10px;
+    text-align: center;
+}
+.head-name{
+    margin-bottom: 5px;
+}
+.temp{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+.input-field{
+    padding: 10px;
+    outline: none;
+}
