@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calender</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: antiquewhite;
+        }
+        .container{
+            width: 200px;
+            background-color: white;
+            text-align: center;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .month{
+            background-color: red;
+            color: white;
+            padding: 20px;
+            font-size: 28px;
+        }
+        .date{
+            padding: 20px 0;
+            font-size: 50px;
+            font-weight: bold;
+        }
+        .weekday{
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="month">January</div>
+        <div class="date">30</div>
+        <div class="weekday">Monday</div>
+    </div>
+    <script>
+        const month = document.querySelector('.month')
+        const date = document.querySelector('.date')
+        const weekday = document.querySelector('.weekday');
+
+        const dateNow = new Date();
+
+        month.textContent = dateNow.toLocaleDateString('en-us',{
+            month:"long",
+        });
+        date.textContent = dateNow.getDate();
+        weekday.textContent = dateNow.toLocaleDateString('en-us',{
+            weekday:"long",
+        });
+
+    </script>
+</body>
+</html>
