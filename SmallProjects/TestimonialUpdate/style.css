@@ -1,0 +1,40 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: antiquewhite;
+}
+
+.container{
+    background: brown;
+    color: white;
+    position: relative;
+    text-align: center;
+    width: 700px;
+    border-radius: 5px;
+}
+.test-img{
+    /* position: absolute; 
+    top: 0;
+    left: 50%;
+    transform: translate(-50%,-50%); */
+    height: 150px;
+    width: 150px;
+    margin-top: -75px;
+    border-radius: 50%;
+}
+.container div{
+    padding: 20px;
+}
+.test-content{
+    margin-bottom: 10px;
+    line-height: 1.3;
+}
