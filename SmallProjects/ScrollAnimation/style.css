@@ -1,0 +1,34 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    margin-top: 20px;
+}
+.numbers{
+    height: 100px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0  10px rgba(0, 0, 0, 0.438);
+    margin-bottom: 20px;
+    border-radius: 5px;
+
+}
+.load-animation{
+    position: fixed;
+    background-color: green;
+    height: 50px;
+    width: 0%;
+    top: 0;
+    left: 0;
+}
+
+
