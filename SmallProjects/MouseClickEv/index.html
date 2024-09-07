@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse Position Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0e6d9;
+        }
+        .container {
+            display: flex;
+            gap: 20px;
+        }
+        .position-box {
+            text-align: center;
+        }
+        .label {
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        .value {
+            width: 150px;
+            height: 60px;
+            border: 2px solid #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .score-container {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        #score {
+            color: #4CAF50;
+        }
+    </style>
+</head>
+<body>
+    <div class="score-container">
+        Score: <span id="score">0</span>
+    </div>
+    <div class="container">
+        <div class="position-box">
+            <div class="label">Mouse X Position (px)</div>
+            <div class="value" id="xPosition">636</div>
+        </div>
+        <div class="position-box">
+            <div class="label">Mouse Y Position (px)</div>
+            <div class="value" id="yPosition">288</div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

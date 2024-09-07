@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Color Palette Generator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .body {
+            background-color: #15667219;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+    <div class="bg-white p-8 rounded-lg shadow-md">
+        <h1 class="text-3xl font-bold mb-6 text-center">Random Color Palette</h1>
+        <div id="colorPalette" class="flex space-x-4 mb-6">
+            <div class="w-20 h-20 rounded-md"></div>
+            <div class="w-20 h-20 rounded-md"></div>
+            <div class="w-20 h-20 rounded-md"></div>
+            <div class="w-20 h-20 rounded-md"></div>
+            <div class="w-20 h-20 rounded-md"></div>
+        </div>
+        <button id="generateBtn" class="w-full bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 transition duration-300">
+            Generate New Palette
+        </button>
+    </div>
+
+    <script>
+        
+        function generateRandomColor() {
+            return '#' + Math.floor(Math.random()*16777215).toString(16);
+        }
+
+        function updateColorPalette() {
+            const colorDivs = document.querySelectorAll('#colorPalette div');
+            colorDivs.forEach(div => {
+                const randomColor = generateRandomColor();
+                div.style.backgroundColor = randomColor;
+            });
+        }
+
+        document.getElementById('generateBtn').addEventListener('click', updateColorPalette);
+
+        // Generate initial colors on page load
+        updateColorPalette();
+    </script>
+</body>
+</html>
