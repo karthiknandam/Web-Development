@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMI Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .calculator {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 300px;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 0;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #ff0000;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #cc0000;
+        }
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <h1>EMI Calculator</h1>
+        <label for="loanAmount">Loan Amount</label>
+        <input type="number" id="loanAmount" placeholder="Enter Loan Amount">
+        
+        <label for="interestRate">Interest Rate</label>
+        <input type="number" id="interestRate" placeholder="Enter Interest Rate">
+        
+        <label for="monthsToPay">Months to Pay</label>
+        <input type="number" id="monthsToPay" placeholder="Enter Months to Pay">
+        
+        <button class="btn-calc">Calculate</button>
+        
+        <div id="result">Your Monthly Payment is: <span class="res-amount"></span></div>
+    </div>
+
+    <script>
+        
+        const loanamount = document.getElementById('loanAmount');
+        const interestRate = document.getElementById('interestRate');
+        const monthsToPay = document.getElementById('monthsToPay');
+        const btnCal = document.querySelector('.btn-calc');
+        const result = document.querySelector('.res-amount');
+
+        
+        btnCal.addEventListener('click',setMonthPay);
+
+        function setMonthPay (){
+            const value = +loanamount.value;
+            const month = +monthsToPay.value;
+            const intrest =(+interestRate.value / 100) / 12;
+            if(!value || !intrest || !month) return alert('Please enter the values');
+            const emi = (value * intrest * Math.pow(1 + intrest, month)) / (Math.pow(1 + intrest, month) - 1);
+            result.textContent = emi.toFixed(2);
+            result.style.color = 'red';
+        };
+        
+    </script>
+</body>
+</html>
