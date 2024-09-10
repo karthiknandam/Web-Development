@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Scroll</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .scroll-container {
+            position: relative;
+            width: 450px;
+            height: 600px;
+            overflow: hidden;
+        }
+        .scroll-images {
+            display: flex;
+            transition: transform 0.3s ease-in-out;
+        }
+        .scroll-images img {
+            width: 450px;
+            height: 600px;
+            object-fit: cover;
+        }
+        .scroll-button {
+            position: absolute;
+            top: 50%;
+            border-radius: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.7);
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            z-index: 10;
+        }
+        .scroll-button img {
+            width: 30px;
+            height: 30px;
+        }
+        .scroll-left {
+            left: 10px;
+        }
+        .scroll-right {
+            right: 10px;
+        }
+    </style>
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <div class="scroll-container">
+        <div class="scroll-images">
+            <img src="https://picsum.photos/450/600?random=1" alt="Random image 1">
+            <img src="https://picsum.photos/450/600?random=2" alt="Random image 2">
+            <img src="https://picsum.photos/450/600?random=3" alt="Random image 3">
+            <img src="https://picsum.photos/450/600?random=4" alt="Random image 4">
+            <img src="https://picsum.photos/450/600?random=5" alt="Random image 5">
+        </div>
+        <button id="left" class="scroll-button scroll-left">
+            <img src="https://cdn-icons-png.flaticon.com/512/15281/15281964.png" alt="Left arrow">
+        </button>
+        <button id="right" class="scroll-button scroll-right">
+            <img src="https://cdn-icons-png.flaticon.com/512/15281/15281963.png" alt="Right arrow">
+        </button>
+    </div>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Emoji</title>
+    <script src="script.js" defer></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #ff7f7f;
+        }
+        .container {
+            text-align: center;
+        }
+        h1 {
+            color: white;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        .emoji-container {
+            background-color: rgba(255, 255, 255, 0.3);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        #emoji {
+            font-size: 5em;
+            margin: 0;
+        }
+        #clickButton {
+            background-color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        #emojiName {
+            color: #4a4a4a;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Random Emoji</h1>
+        <div class="emoji-container">
+            <p id="emoji">😊</p>
+        </div>
+        <button id="clickButton">Click</button>
+        <p id="emojiName">Emoji Name</p>
+    </div>
+</body>
+</html>
