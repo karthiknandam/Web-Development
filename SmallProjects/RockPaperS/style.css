@@ -1,0 +1,50 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: beige;
+}
+.container{
+    background-color: white;
+    width: 400px;
+}
+.heading{
+    background-color: blue;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+section{
+    padding: 20px;
+}
+.scores{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.emojis{
+    display: flex;
+    justify-content: space-between;
+}
+.emoji{
+    font-size: 70px;
+    background-color: blue;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.result{
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}

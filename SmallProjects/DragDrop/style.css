@@ -1,0 +1,31 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.container{
+    width: 70%;
+    height: 70%;
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.item{
+    background-color: black;
+    color: white;
+    padding: 10px;
+    margin: 10px;
+    cursor: grab;
+}
+.box{
+    width: 200px;
+    height: 200px;
+    border: 2px solid black;
+}

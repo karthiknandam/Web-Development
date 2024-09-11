@@ -1,0 +1,50 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: beige;
+}
+.container{
+    background-color: white;
+    width: 400px;
+}
+.heading{
+    background-color: blue;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+.section , .add-in-sec{
+    font-size: 20px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.input-sec{
+    font-size: 20px;
+    padding: 10px;
+    width: 70%;
+}
+.btn{
+    padding: 10px;
+    font-weight: bold;
+    background-color: blue;
+    color:white;
+    border: none;
+    border-radius: 5px;
+    width:80px;
+}
+.add-in-sec{
+    border-top: 2px solid black;
+    display: flex;
+}
+.list-sec{
+    width: 70%;
+}
