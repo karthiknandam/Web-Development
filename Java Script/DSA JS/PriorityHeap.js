@@ -10,30 +10,31 @@ class PriorityHeap {
         this.values = [];
     }
 
-    insert(val , priority){
+    enqueue(val , priority){
         const newNode = new node(val , priority)
-        this.values.push(val);
+        this.values.push(newNode);
         this.bubble();
         return this.values;
     }
-    enqueue(){
+    bubble(){
         let idx = this.values.length - 1;
         let element = this.values[idx];
         while(idx > 0){
             let parentIdx = Math.floor((idx - 1) / 2);
             let parentValue = this.values[parentIdx];
-            if(element <= parentValue) break;
+            if(element.priority >= parentValue.priority) break;
             this.values[idx] = parentValue;
             this.values[parentIdx] = element;
             idx = parentIdx;
         }
     }
     dequeue(){
+        if(this.values.length === 0) return false;
+        let min = this.values[0];
         let popElement = this.values.pop();
-        let min = this.values[0]
         if(this.values.length > 0) {
-            this.values[0] = popElement;
-            this.sinkDown(); 
+        this.values[0] = popElement;
+        this.sinkDown(); 
         }
         return {
             min ,
@@ -51,13 +52,13 @@ class PriorityHeap {
             let swapIdx = null;
             if(leftIdx < length ) {
               left =  this.values[leftIdx] ;
-                if(left > parent) swapIdx = leftIdx;
+                if(left.priority < parent.priority) swapIdx = leftIdx;
             }
             if(rightIdx < length ){
                 right = this.values[rightIdx]
                 if(
-                    (swapIdx === null && right > parent) || 
-                    (swapIdx !== null && right > left)
+                    (swapIdx === null && right.priority < parent.priority) || 
+                    (swapIdx !== null && right.priority < left.priority)
                   )
              swapIdx = rightIdx;
             }
@@ -69,4 +70,4 @@ class PriorityHeap {
         }
     }
 }
-const Maguns = new PriorityHeap();
+const Hospital = new PriorityHeap();
