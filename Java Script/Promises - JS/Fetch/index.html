@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function getApi() {
+        const p = fetch("https://fakerapi.it/api/v2/users")
+          .then((res) => {
+            return res.json();
+          })
+          .then((cl) => {
+            console.log(cl);
+          });
+      }
+    </script>
+    <button onclick="getApi()">Touch Me</button>
+  </body>
+</html>
