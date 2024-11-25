@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function enterFn() {
+        const a = document.getElementById("firstNum").value;
+        const b = document.getElementById("secondNum").value;
+        const c = document.querySelector(".outputVal");
+        const mix = fetch(
+          `http://sum-server.100xdevs.com/sum?a=${a}&b=${b}`
+        ).then(function (response) {
+          return response.text();
+        });
+        console.log(mix);
+      }
+    </script>
+    <div>
+      <input type="number" name="first" id="firstNum" />
+    </div>
+    <div>
+      <input type="number" name="second" id="secondNum" />
+    </div>
+    <button onclick="enterFn()">enter btn</button>
+    <div class="outputVal"></div>
+  </body>
+</html>
